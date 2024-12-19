@@ -1,0 +1,16 @@
+<mvc:View
+	controllerName="assignment1.controller.odataDemo"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<List
+		id="ShortProductList"
+		headerText="Products"
+		items="{
+			path: '/Products'
+		}">
+		<items>
+			<StandardListItem
+				title="{Name}" />
+		</items>
+	</List>
+</mvc:View>

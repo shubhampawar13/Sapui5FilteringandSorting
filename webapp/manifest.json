@@ -1,0 +1,185 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "assignment1",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.2",
+      "toolsId": "6719a0ba-a68e-4bc4-9924-a45eab241617"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/V2/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "tableData": {
+        "uri": "model/product.json",
+        "type": "JSON"
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.129.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "assignment1.i18n.i18n"
+        }
+      },
+      "dataSource": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "productModelData": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "tableData"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "assignment1.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView1"
+          ]
+        },
+        {
+          "name": "Pdetails",
+          "pattern": "product/{productId}",
+          "target": [
+            "Pdetails"
+          ]
+        },
+        {
+          "name": "AddProduct",
+          "pattern": "addproduct",
+          "target": [
+            "AddProduct"
+          ]
+        },
+        {
+          "name": "UpdateProduct",
+          "pattern": "updateproduct/{productId}",
+          "target": [
+            "UpdateProduct"
+          ]
+        }
+        ,
+        {
+          "name": "odataDemo",
+          "pattern": "odataDemo",
+          "target": [
+            "odataDemo"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetView1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View1",
+          "viewName": "View1"
+        },
+        "Pdetails": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Pdetails",
+          "viewName": "Pdetails"
+        },
+        "AddProduct": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "AddProduct",
+          "viewName": "AddProduct"
+        },
+        "UpdateProduct": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "UpdateProduct",
+          "viewName": "UpdateProduct"
+        }
+        ,
+        "odataDemo": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "odataDemo",
+          "viewName": "odataDemo"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "assignment1.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "assignment1"
+  }
+}

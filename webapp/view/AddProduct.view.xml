@@ -1,0 +1,51 @@
+<mvc:View controllerName="assignment1.controller.AddProduct"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:form="sap.ui.layout.form"
+    height="100%"
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core">
+    <App id="addProduct">
+    <Page showHeader="false">
+    
+			<form:SimpleForm title="Add New Painting" editable="true" layout="ResponsiveLayout" id="addproduct_form">
+   
+   <Label text="Image URL" />
+<Input placeholder="Enter image URL" id="imageUrlInput" name="image" change="onInputChange"/>
+
+<Label text="Painting Name" />
+<Input placeholder="All characters allowed" id="p_name" name="product_name" change="onInputChange"/>
+
+<Label text="Artist Name" />
+<Input placeholder="Latin characters (case insensitive) and numbers" id="artistNameInput" name="artist_name" change="onInputChange"/>
+
+<Label text="Rating (1 to 5)" />
+<Input placeholder="Enter rating" id="ratingP" name="rating" change="onInputChange"/>
+
+<Label text="Price" />
+<Input placeholder="Enter price in numbers" id="price" name="price" change="onInputChange"/>
+
+<Label text="Height (mm)" />
+<Input placeholder="Enter height in mm" id="height" name="height" change="onInputChange"/>
+
+<Label text="Depth (mm)" />
+<Input placeholder="Enter depth in mm" id="depth" name="depth" change="onInputChange"/>
+
+<Label text="Width (mm)" />
+<Input placeholder="Enter width in mm" id="width" name="width" change="onInputChange"/>
+
+<Label text="Description" />
+<Input placeholder="Enter description" id="descriptionInput" name="description" change="onInputChange"/>
+
+<Button text="Save" press="onSave"/>
+
+
+
+	
+</form:SimpleForm>
+
+
+
+            
+    </Page >
+    </App>
+</mvc:View>

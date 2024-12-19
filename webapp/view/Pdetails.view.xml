@@ -1,0 +1,54 @@
+<mvc:View controllerName="assignment1.controller.Pdetails"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    height="100%"
+    xmlns:f="sap.ui.layout.form"
+	xmlns:tnt="sap.tnt"
+    	xmlns:core="sap.ui.core">
+    <Page id="page2" title="Product Description" class=" whiteBackground" >
+        <content >
+            <HBox class="sapUiSmallMarginTop sapUiLargeMarginBegin" justifyContent="SpaceBetween">
+                <Title id="carouselTitle" text="{productData>product_name}" />
+                <Button text="Update Product" press="onUpdateProduct" icon="sap-icon://edit" type="Emphasized" />
+            </HBox>
+	<Carousel ariaLabelledBy="carouselTitle" class="sapUiContentPadding carouselHeight" loop="true">
+		<Image src="{productData>image}" alt="Example picture of speakers" />
+		<Image src="{productData>image}" alt="Example picture of USB flash drive" />
+		<Image src="{productData>image}" alt="Example picture of spotlight" />
+		<Image src="{productData>image}" alt="Example picture of screw" />
+	</Carousel>
+    <FlexBox class="sapUiLargeMarginBegin whiteBackground" > 
+			<FlexBox direction="Row" alignItems="Start" class="sapUiTinyMarginBottom" >
+				
+				<tnt:InfoLabel id="il9" text="{= ${productData>available} ? 'Available' : 'Not Available' }" colorScheme="9"/>
+			</FlexBox>
+
+			</FlexBox>
+
+			 
+             <!-- Using VBox for proper alignment -->
+            <VBox class="sapUiSmallMarginTop sapUiLargeMarginBegin">
+			    <Title text="{productData>product_name}"  level="H1"/>
+                <Text text=" by {productData>artist_name}" class="lightGreenText" />
+				<Text text=""></Text>
+				<Title text="₹{productData>price}"  level="H1"/>
+				<Title ><tnt:InfoLabel id="il8" text="Special October discount " colorScheme="8" icon="sap-icon://waiver" /></Title>
+				<Text text="Get 10% off on your entire order. Use coupon ART10"></Text>
+				<Text text=""></Text>
+				<HBox class=" " justifyContent="Start">
+    <!-- Add to Cart Button -->
+    <Button text="Add to Cart" class="sapUiSmallMarginEnd" press="onAddToCart" icon="sap-icon://cart-approval"  />
+
+    <!-- Order Custom Size Button -->
+    <Button text="Order Custom Size" press="onOrderCustomSize" icon="sap-icon://customer-order-entry" />
+</HBox>
+                 <ProgressIndicator class="sapUiSmallMarginBottom" percentValue="{= ${productData>rating} * 20 }" displayValue="Reviews: {productData>rating} out of 5" showValue="true" state="{productData>state}" width="30%"/>
+                <Title text="About Painting:" />
+                <Text width="70%" class="sapUiSmallMarginBottom"  text="{productData>description}" />
+            </VBox>
+
+			
+        </content>
+    </Page>
+</mvc:View>
